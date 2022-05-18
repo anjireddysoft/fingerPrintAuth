@@ -27,22 +27,16 @@ class _LogInState extends State<LogIn> {
       print("error enumerate biometrics $e");
     }
     print("following biometrics are available");
-    if (availableBiometrics.isNotEmpty) {
-      availableBiometrics.forEach((ab) {
-        print("\ttech: $ab");
-      });
-    } else {
-      print("no biometrics are available");
-    }
+
 
     bool authenticated = false;
 
     try {
-      authenticated = await auth.authenticateWithBiometrics(
+      authenticated = await auth.authenticate(
           localizedReason: 'Touch your finger on the sensor to login',
           useErrorDialogs: true,
-          stickyAuth: false
-        // androidAuthStrings:AndroidAuthMessages(signInTitle: "Login to HomePage")
+        biometricOnly: true
+
       );
     } catch (e) {
       print("error using biometric auth: $e");

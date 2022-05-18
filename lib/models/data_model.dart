@@ -1,10 +1,5 @@
-import 'package:floor/floor.dart';
-
-@entity
 class ItemModel {
- @PrimaryKey(autoGenerate: true)
-   int id;
-
+  int id;
   String nodeId;
   String name;
   String fullName;

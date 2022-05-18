@@ -6,6 +6,7 @@ import 'config.dart';
 import 'models/data_model.dart';
 
 class APIService {
+
   Future<List<ItemModel>> getData(pageNumber) async {
     String url = "/repos?page=$pageNumber&per_page=15";
 
